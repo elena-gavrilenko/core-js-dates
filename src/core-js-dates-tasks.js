@@ -169,7 +169,6 @@ function isDateInPeriod(date, period) {
  * '2010-12-15T22:59:00.000Z' => '12/15/2010, 10:59:00 PM'
  */
 function formatDate(date) {
-  console.log(date);
   const newDate = date.replace(/\.000Z/, '').split('T');
 
   newDate[0] = newDate[0]
@@ -180,7 +179,7 @@ function formatDate(date) {
     .join('/');
   newDate[1] = newDate[1].replace(
     /^(\d{2})([:\d]+)/,
-    function (match0, match1, match2) {
+    function callBack(match0, match1, match2) {
       let a = match1;
       if (+match1 > 12) {
         a = `${+a - 12 + match2} PM`;
